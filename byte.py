@@ -130,7 +130,7 @@ if options == 2:
     read()
 
 if options == 0 or options > 2:
-    print("Number not recconized")
+    print("Invalid Number. | Number is not a choosable option.")
     quit()
 
 #------------Code End.------------#
