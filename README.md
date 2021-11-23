@@ -6,7 +6,6 @@ __ __
 # TODO
 > - [ ] Add more file formats to support.
 > - [ ] Clean up code and improve things.
-> - [ ] Add support for GIFs
 __ __
 
 <br />
@@ -29,6 +28,7 @@ __ __
 # Supported Filetypes
 > - [x] PNG
 > - [x] JPG/JPEG
+> - [x] GIF
 
 <br />
 <br />
