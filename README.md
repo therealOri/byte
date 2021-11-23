@@ -1,5 +1,11 @@
-# byte
-Image Steganography Injector. For artists or people to inject their own print into their images data.
+# Byte
+Steganography Image/Data Injector. For artists or people to inject their own print/data into their images.
+__ __
+<br />
+
+# TODO
+> - [ ] Add more file formats to support.
+__ __
 
 <br />
 <br />
