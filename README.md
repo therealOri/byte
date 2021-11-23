@@ -10,25 +10,21 @@ __ __
 <br />
 <br />
 
-# Installation
+# Installation/Links
+- [Python3 | Direct (Windows 10)](https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe)
+- [Python3 | Website](https://www.python.org)
+
 ```bash
 git clone https://github.com/therealOri/byte.git
 cd byte
 python3 byte.py
 ```
+__ __
 
 <br />
 <br />
 
-# Usage / Links
-- [Python3 | Direct (Windows 10)](https://www.python.org/ftp/python/3.10.0/python-3.10.0-amd64.exe)
-- [Python3 | Website](https://www.python.org)
-> `python3 byte.py`
-
-<br />
-<br />
-
-# Supports
+# Supported Filetypes
 > - [x] PNG
 > - [x] JPG/JPEG
 
