@@ -72,9 +72,9 @@ def read():
                 offset = content.index(bytes.fromhex('0000000049454E44AE426082'))
                 f.seek(offset + 12)
                 inj_bytes = f.read()
-                b64 = inj_bytes.decode('utf-8')
-                result = base64.b64decode(b64)
-                print(result)
+                result = base64.b64decode(inj_bytes)
+                b64 = result.decode('utf-8')
+                print(b64)
 
         else:
             print(f'The file with the name "{file}" does not exist in the current directory.')
@@ -92,15 +92,31 @@ def read():
                 offset = content.index(bytes.fromhex('FFD9'))
                 f.seek(offset + 2)
                 inj_bytes2 = f.read()
-                b64 = inj_bytes2.decode('utf-8')
-                result = base64.b64decode(b64)
-                print(result)
+                result = base64.b64decode(inj_bytes2)
+                b64 = result.decode('utf-8')
+                print(b64)
         else:
             print(f'The file with the name "{file}" does not exist in the current directory.')
             quit()
 
+    #GIF      
+    if file_format == 3:
+        clear()
+        file = input("Name of the file you want to read data from: ")
+
+        if file_exists(file):
+            clear()
+            with open(file, "rb") as f:
+                content = f.read()
+                offset = content.index(bytes.fromhex('00003B'))
+                f.seek(offset + 3)
+                inj_bytes3 = f.read()
+                result = base64.b64decode(inj_bytes3)
+                b64 = result.decode('utf-8')
+                print(b64)
+
     # Not on menu
-    if file_format == 0 or file_format > 2:
+    if file_format == 0 or file_format > 3:
         clear()
         print("Invalid Number. | Number is not a choosable option.")
 # End of Read
@@ -113,7 +129,6 @@ def read():
 
 #------------Code Start.------------#
 while True:
-    clear()
     try:
         options = int(input(f"{menu2}\n\nWhat would you like to do?: "))
         break
