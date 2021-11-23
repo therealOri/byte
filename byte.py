@@ -30,11 +30,11 @@ def clear():
 # Inject data into file.
 def inject():
     clear()
-    file = input("Name of file to use: ")
+    file = input("Name of the file to use: ")
 
     if file_exists(file):
         clear()
-        text1 = input("What text would you like to use?: ")
+        text1 = input("What text do you want to inject?: ")
         clear()
 
         b64_txt = base64.b64encode(bytes(text1, 'utf-8'))
@@ -63,7 +63,7 @@ def read():
     # PNG
     if file_format == 1:
         clear()
-        file = input("Name of file to use: ")
+        file = input("Name of the file you want to read data from: ")
 
         if file_exists(file):
             clear()
@@ -83,7 +83,7 @@ def read():
     #JPG        
     if file_format == 2:
         clear()
-        file = input("Name of file to use: ")
+        file = input("Name of the file you want to read data from: ")
 
         if file_exists(file):
             clear()
