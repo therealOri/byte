@@ -5,6 +5,7 @@ __ __
 
 # TODO
 > - [ ] Add more file formats to support.
+> - [ ] Clean up code and improve things.
 __ __
 
 <br />
