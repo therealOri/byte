@@ -113,6 +113,7 @@ def read():
 
 #------------Code Start.------------#
 while True:
+    clear()
     try:
         options = int(input(f"{menu2}\n\nWhat would you like to do?: "))
         break
