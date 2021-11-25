@@ -149,7 +149,7 @@ def check():
 # End of Check Hash
 
 
-#------------Functions and global veriables END.------------#
+#------------Functions and global variables END.------------#
 
 
 
