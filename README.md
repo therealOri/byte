@@ -16,7 +16,7 @@ __ __
 
 With this being said, You can use the new "Check Hash" function to get the hash of your art!
 
-Example (Of a test file called `Arch_btw.png`):
+Example (Of test files called `Arch_btw_no_datamark.png` and `Arch_btw_datamark.png`):
  - No Datamark: `6db87cd806d5cfbaebd928dfd1dd14888c39767415f4fcac180ccf69b2dbbfcb` | Anyone removing datamark in the hex code/data will get this hash value.
 - Datamark: `c2b494018149d9964876fdddd2535786fac09de179882bc7c4bcc3b9b4e5db9b` | Anyone not removing the datamark will get this hash value. | Watermark/Datamark is --> "This art is made by: Ori#6338 (On Discord)."
 
