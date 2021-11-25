@@ -12,8 +12,7 @@ __ __
 <br />
 
 # Hashing
-> Hashing means using some function or algorithm to map object data to some representative integer value.
-This so-called hash code (or simply hash) can then be used as a way to narrow down our search when looking for the item in the map. Or to compare files to see if they match/are the same.
+> "Hashing" is the process of scrambling raw information to the extent that it cannot be reproduced back into its original form. It takes a piece of information and passes it through a function that performs mathematical operations. This function is called the hash function, and the output is called the hash value/digest. And hash values/hashes can be used to compare files or text to see if they match or are the same.
 
 With this being said, You can use the new "Check Hash" function to get the hash of your art!
 
@@ -22,6 +21,9 @@ Example (Of a test file called `Arch_btw.png`):
 - Datamark: `c2b494018149d9964876fdddd2535786fac09de179882bc7c4bcc3b9b4e5db9b` | Anyone not removing the datamark will get this hash value. | Watermark/Datamark is --> "This art is made by: Ori#6338 (On Discord)."
 
 As you can see, The hashes are completely different and can let you or others know, which image/art is the original and came from you!
+__ __
+
+Find out more about hashing and the sha256 algorithm I use [Here!](https://www.simplilearn.com/tutorials/cyber-security-tutorial/sha-256-algorithm)
 
 
 
