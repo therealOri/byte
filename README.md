@@ -16,9 +16,16 @@ __ __
 
 With this being said, You can use the new "Check Hash" function to get the hash of your art!
 
+ <br />
+
 Example (Of test files called `Arch_btw_no_datamark.png` and `Arch_btw_datamark.png`):
- - No Datamark: `6db87cd806d5cfbaebd928dfd1dd14888c39767415f4fcac180ccf69b2dbbfcb` | Anyone removing datamark in the hex code/data will get this hash value.
+ - No Datamark: `6db87cd806d5cfbaebd928dfd1dd14888c39767415f4fcac180ccf69b2dbbfcb` | Anyone removing the datamark in the hex code/data will get this hash value. (Changing the datamark will result in a different hash value)
+ 
 - Datamark: `c2b494018149d9964876fdddd2535786fac09de179882bc7c4bcc3b9b4e5db9b` | Anyone not removing the datamark will get this hash value. | Watermark/Datamark is --> "This art is made by: Ori#6338 (On Discord)."
+
+- Changed Datamark: `eb85e8254407f6b8491eab57ad63d6860719cafeee5a37103923c6059b8ea0b9` | If anyone changed or edited your datamark, they will get a different hash value all together. | Watermark/Datamark changed/edited to --> "This art is made by: SomeGuy#7830 (On Discord)"
+
+ <br />
 
 As you can see, The hashes are completely different and can let you or others know, which image/art is the original and came from you!
 __ __
@@ -57,3 +64,4 @@ __ __
 > - This code does not inject files/images into said image. I may make a seperate file in this repo for that.
 > - You need python3 in order to use this. (Very easy to get/install and use)
 > - If you want to make this code cleaner, better, more optimized, or add onto the code. Please make a pull request and push your code for me to review.
+> - Hashing does **Nothing** to the image/art or image/art quality. Your art will still look, feel, and be the same.
