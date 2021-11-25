@@ -1,6 +1,7 @@
 import os
 from os.path import exists as file_exists
 import base64
+import hashlib
 
 
 #------------Functions and global veriables START.------------#
@@ -14,12 +15,13 @@ menu = """
 """
 
 menu2 = """
-|_______________________|
-|                       |
-|      1. Inject        |
-|      2. Read          |
-|                       |
-|_______________________|
+|____________________________|
+|                            |
+|      1. Inject Data        |
+|      2. Read Data          |
+|      3. Check File Hash    |
+|                            |
+|____________________________|
 """
 
 
@@ -121,6 +123,32 @@ def read():
         print("Invalid Number. | Number is not a choosable option.")
 # End of Read
 
+
+# Check Hash
+def check():
+    buffer_size = 65536
+
+    file = input("Name of the file you want check the hash of?: ")
+
+    if file_exists(file):
+        clear()
+
+        sha256 = hashlib.sha256()
+        with open(file, 'rb') as fh:
+            while True:
+                data = fh.read(buffer_size)
+                if not data:
+                    break
+                sha256.update(data)
+                nhash = sha256.hexdigest()
+
+        print(f'Here is the hash for "{file}".\n\nsha256 hash: {nhash}')
+    else:
+        print(f'The file with the name "{file}" does not exist in the current directory.')
+        quit()
+# End of Check Hash
+
+
 #------------Functions and global veriables END.------------#
 
 
@@ -143,8 +171,11 @@ if options == 1:
 
 if options == 2:
     read()
+    
+if options == 3:
+    check()
 
-if options == 0 or options > 2:
+if options == 0 or options > 3:
     print("Invalid Number. | Number is not a choosable option.")
     quit()
 
