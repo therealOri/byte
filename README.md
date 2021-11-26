@@ -5,7 +5,6 @@ __ __
 
 # TODO
 > - [ ] Add more file formats to support.
-> - [ ] Clean up code and improve things.
 __ __
 
 <br />
@@ -65,3 +64,5 @@ __ __
 > - You need python3 in order to use this. (Very easy to get/install and use)
 > - If you want to make this code cleaner, better, more optimized, or add onto the code. Please make a pull request and push your code for me to review.
 > - Hashing does **Nothing** to the image/art or image/art quality. Your art will still look, feel, and be the same.
+
+Update: If you don't like the new way byte works, then please let me know with an issue. If a lot of you don't like it, then I'll revert the changes! <3
