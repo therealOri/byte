@@ -83,7 +83,7 @@ def read():
     while True:
 
         try:
-            file_format = int(input(f"{ftype_menu()}\n\nIs this file a PNG or JPEG/JPG?: "))
+            file_format = int(input(f"{ftype_menu()}\n\nIs this file a PNG, JPEG/JPG, or GIF?: "))
             break
         except Exception as e:
             clear()
