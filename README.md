@@ -4,7 +4,7 @@ __ __
 <br />
 
 # TODO
-> - [ ] Add more file formats to support.
+> - Nothing right now ^-^
 __ __
 
 <br />
