@@ -168,17 +168,18 @@ def encode():
     if file_exists(img):
         image = Image.open(img, 'r')
  
-        data = input("Enter data to be encoded: ")
+        data = input("Enter data to be injected: ")
         if (len(data) == 0):
-            raise ValueError('You need to provide data/text to encode into the image.')
+            raise ValueError('You need to provide data/text to inject into the image.')
     
         newimg = image.copy()
         encode_enc(newimg, data)
     
-        new_img_name = input("Enter the name of new image(with extension) : ")
+        new_img_name = input("Save image as(with extension): ")
         newimg.save(new_img_name, str(new_img_name.split(".")[1].upper()))
     else:
-        print(f'The file with the name "{file}" does not exist in the current directory.')
+        clear()
+        print(f'The file with the name "{img}" does not exist in the current directory.')
         quit()
 
 
@@ -190,15 +191,12 @@ def decode():
     img = input("Enter image name(with extension): ")
 
     if file_exists(img):
-
         image = Image.open(img, 'r')
-    
         data = ''
         imgdata = iter(image.getdata())
     
         while (True):
             pixels = [value for value in imgdata.__next__()[:3] + imgdata.__next__()[:3] + imgdata.__next__()[:3]]
-    
             #String of binary data
             binstr = ''
     
@@ -212,7 +210,7 @@ def decode():
             if (pixels[-1] % 2 != 0):
                 return data
     else:
-        print(f'The file with the name "{file}" does not exist in the current directory.')
+        print(f'The file with the name "{img}" does not exist in the current directory.')
         quit()
 
 #------------End of Credited Library------------#
