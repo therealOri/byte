@@ -1,33 +1,30 @@
 # Library for byte. | Aka the file being used for all of the functions to call and use.
 from blib import bl
 
+
 #------------Code Start.------------#
-while True:
-    try:
-        options = int(input(f"{bl.option_menu()}\n\nWhat would you like to do?: "))
-        break
-    except Exception as e:
-        blib.clear()
-        print(f"Oops! Value given was not an integer, please try again.\nError: {e}")
-
-
 bl.clear()
-if options == 1:
-    bl.inject()
-
-if options == 2:
-    bl.read()
-
-if options == 3:
+try:
+    a = int(input(f"{bl.banner()}\n\nWhat would you like to do?\n\n1. Encode\n2. Decode\n3. Get hash\n4. Compare hashes\n\nEnter: "))
+except Exception as e:
+    bl.clear()
+    print(f'Value given is not an integer.\nError: {e}')
+    quit()
+    
+if (a == 1):
+    bl.encode()
+elif (a == 2):
+    print(f"Decoded Data:  {bl.decode()}")
+elif (a == 3):
     bl.check()
-
-if options == 4:
+elif (a == 4):
+    bl.clear()
     fhash = input('Please provide a sha256 hash to compare: ')
     bl.clear()
     bl.compare(fhash)
-
-if options == 0 or options > 4:
-    print("Invalid Number. | Number is not a choosable option.")
+else:
+    bl.clear()
+    print("Incorrect value given. Please choose a valid option.")
     quit()
 
 #------------Code End.------------#
