@@ -161,7 +161,7 @@ def encode_enc(newimg, data):
 
 
 
-# Encode data into image
+# Encodes/injects your data into the image
 def encode():
     clear()
     img = input("Enter image name(with extension): ")
@@ -185,7 +185,7 @@ def encode():
 
 
 
-# Decode the data in the image
+# Decodes your data in the image
 def decode():
     clear()
     img = input("Enter image name(with extension): ")
