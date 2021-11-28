@@ -92,7 +92,8 @@ def compare(fhash):
 # https://www.geeksforgeeks.org/image-based-steganography-using-python/
 # Functions genData(), modPix(), encode_enc(), encode(), and decode() can be creddited to "geeksforgeeks" for the help with the library functions to make this possible. <3
 # Hopefully I changed/added enough here to be ok. I'd change more but tbh, I don't exactly know what to change as it's so precise and would probably break if I did.
-# Still going to call this whole byte project mine and that I made it.
+# To anyone reading this, you are more then welcome to make a push request here on github and edit the functions to work better!
+# I am still going to call this whole byte project mine and that I made it.
 
 
 
