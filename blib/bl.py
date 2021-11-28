@@ -215,3 +215,7 @@ def decode():
         quit()
 
 #------------End of Credited Library------------#
+
+
+if __name__ == '__main__':
+    pass
