@@ -2,7 +2,7 @@
 Steganography Image/Data Injector. For artists or people to inject their own Datamark "Watermark" into their images/art or files!
 __ __
 
-Update | 11/27/2021 | 7:47PM:
+Update | 11/27/2021:
 > - New overhaul to code, so even if someone edits and saves/exports your art. Your datamark will still be there in the image's data.
 __ __
 <br />
