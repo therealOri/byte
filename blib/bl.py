@@ -1,169 +1,33 @@
+from PIL import Image
 import os
 from os.path import exists as file_exists
-import base64
 import hashlib
 
 
-#------------Functions and Stuff------------#
+#------------My functions------------#
 
-# I would like better menus..
-def ftype_menu():
-    menu = """
-    |_______________________|
-    |                       |
-    |      1. PNG           |
-    |      2. JPEG/JPG      |
-    |      3. GIF           |
-    |                       |
-    |_______________________|
-    """
-    return menu
-
-
-def option_menu():
-    menu2 = """
-    |____________________________|
-    |                            |
-    |      1. Inject Data        |
-    |      2. Read Data          |
-    |      3. Check File Hash    |
-    |      4. Compare Hashes     |
-    |                            |
-    |____________________________|
-    """
-    return menu2
-
-
-# Clears the terminal.
 def clear():
     os.system('clear||cls')
 
 
+def banner():
+    banner = """
 
-
-
-
-
-
-
-
-
-# Inject data into file.
-def inject():
-    clear()
-    file = input("Name of the file to use: ")
-
-    if file_exists(file):
-        clear()
-        text1 = input("What text do you want to inject?: ")
-        clear()
-
-        b64_txt = base64.b64encode(bytes(text1, 'utf-8'))
-        with open(file, "ab") as f:
-            f.write(b64_txt)
-            print("Data has been injected!")
-
-    else:
-        print(f'The file with the name "{file}" does not exist in the current directory.')
-        quit()
-# End of Inject
-
-
-
-
-
-
-
-
-
-
-# Read Injected Data
-def read():
-    clear()
-    while True:
-
-        try:
-            file_format = int(input(f"{ftype_menu()}\n\nIs this file a PNG, JPEG/JPG, or GIF?: "))
-            break
-        except Exception as e:
-            clear()
-            print(f"Oops! Value given was not an integer, please try again.\nError: {e}")
-    
-    # PNG
-    if file_format == 1:
-        clear()
-        file = input("Name of the file you want to read data from: ")
-
-        if file_exists(file):
-            clear()
-            with open(file, "rb") as f:
-                content = f.read()
-                offset = content.index(bytes.fromhex('0000000049454E44AE426082'))
-                f.seek(offset + 12)
-                inj_bytes = f.read()
-                result = base64.b64decode(inj_bytes)
-                b64 = result.decode('utf-8')
-                print(b64)
-
-        else:
-            print(f'The file with the name "{file}" does not exist in the current directory.')
-            quit()
-
-    #JPG        
-    if file_format == 2:
-        clear()
-        file = input("Name of the file you want to read data from: ")
-
-        if file_exists(file):
-            clear()
-            with open(file, "rb") as f:
-                content = f.read()
-                offset = content.index(bytes.fromhex('FFD9'))
-                f.seek(offset + 2)
-                inj_bytes2 = f.read()
-                result = base64.b64decode(inj_bytes2)
-                b64 = result.decode('utf-8')
-                print(b64)
-        else:
-            print(f'The file with the name "{file}" does not exist in the current directory.')
-            quit()
-
-    #GIF      
-    if file_format == 3:
-        clear()
-        file = input("Name of the file you want to read data from: ")
-
-        if file_exists(file):
-            clear()
-            with open(file, "rb") as f:
-                content = f.read()
-                offset = content.index(bytes.fromhex('00003B'))
-                f.seek(offset + 3)
-                inj_bytes3 = f.read()
-                result = base64.b64decode(inj_bytes3)
-                b64 = result.decode('utf-8')
-                print(b64)
-        else:
-            print(f'The file with the name "{file}" does not exist in the current directory.')
-            quit()
-
-    # Not on menu
-    if file_format == 0 or file_format > 3:
-        clear()
-        print("Invalid Number. | Number is not a choosable option.")
-# End of Read
-
-
-
-
-
-
-
+    ██████╗ ██╗   ██╗████████╗███████╗
+    ██╔══██╗╚██╗ ██╔╝╚══██╔══╝██╔════╝
+    ██████╔╝ ╚████╔╝    ██║   █████╗  
+    ██╔══██╗  ╚██╔╝     ██║   ██╔══╝  
+    ██████╔╝   ██║      ██║   ███████╗
+    ╚═════╝    ╚═╝      ╚═╝   ╚══════╝
+                                        
+    """
+    return banner
 
 
 
 # Check Hash
 def check():
+    clear()
     buffer_size = 65536
 
     file = input("Name of the file you want check the hash of?: ")
@@ -185,12 +49,6 @@ def check():
         print(f'The file with the name "{file}" does not exist in the current directory.')
         quit()
 # End of Check Hash
-
-
-
-
-
-
 
 
 
@@ -223,8 +81,138 @@ def compare(fhash):
         quit()
 # End Compare hash
 
+#------------End of My functions------------#
 
 
 
-if __name__ == '__main__':
-    pass
+
+
+
+#------------Credited functions and Stuff------------#
+# https://www.geeksforgeeks.org/image-based-steganography-using-python/
+# Functions genData(), modPix(), encode_enc(), encode(), and decode() can be creddited to "geeksforgeeks" for the help with the library functions to make this possible. <3
+# Hopefully I changed/added enough here to be ok. I'd change more but tbh, I don't exactly know what to change as it's so precise and would probably break if I did.
+# Still going to call this whole byte project mine and that I made it.
+
+
+
+def genData(data):
+        dlist = []
+        for i in data:
+            dlist.append(format(ord(i), '08b'))
+        return dlist
+
+
+
+def modPix(pix, data):
+    datalist = genData(data)
+    lendata = len(datalist)
+    imdata = iter(pix)
+ 
+    for i in range(lendata):
+        # Extracting 3 pixels at a time
+        pix = [value for value in imdata.__next__()[:3] + imdata.__next__()[:3] + imdata.__next__()[:3]]
+ 
+        # Pixel value should be made odd for 1 and even for 0
+        for j in range(0, 8):
+            if (datalist[i][j] == '0' and pix[j]% 2 != 0):
+                pix[j] -= 1
+ 
+            elif (datalist[i][j] == '1' and pix[j] % 2 == 0):
+                if(pix[j] != 0):
+                    pix[j] -= 1
+                else:
+                    pix[j] += 1
+ 
+
+        # The 8th pixel of every set tells it whether to stop or read further. 0 means keep reading, 1 means the message is over.
+        if (i == lendata - 1):
+            if (pix[-1] % 2 == 0):
+                if(pix[-1] != 0):
+                    pix[-1] -= 1
+                else:
+                    pix[-1] += 1
+ 
+        else:
+            if (pix[-1] % 2 != 0):
+                pix[-1] -= 1
+ 
+        pix = tuple(pix)
+        yield pix[0:3]
+        yield pix[3:6]
+        yield pix[6:9]
+
+
+
+
+# Putting modified pixels into the new image
+def encode_enc(newimg, data):
+    w = newimg.size[0]
+    (x, y) = (0, 0)
+ 
+    for pixel in modPix(newimg.getdata(), data):
+        newimg.putpixel((x, y), pixel)
+        if (x == w - 1):
+            x = 0
+            y += 1
+        else:
+            x += 1
+
+
+
+
+# Encode data into image
+def encode():
+    clear()
+    img = input("Enter image name(with extension): ")
+    if file_exists(img):
+        image = Image.open(img, 'r')
+ 
+        data = input("Enter data to be encoded: ")
+        if (len(data) == 0):
+            raise ValueError('You need to provide data/text to encode into the image.')
+    
+        newimg = image.copy()
+        encode_enc(newimg, data)
+    
+        new_img_name = input("Enter the name of new image(with extension) : ")
+        newimg.save(new_img_name, str(new_img_name.split(".")[1].upper()))
+    else:
+        print(f'The file with the name "{file}" does not exist in the current directory.')
+        quit()
+
+
+
+
+# Decode the data in the image
+def decode():
+    clear()
+    img = input("Enter image name(with extension): ")
+
+    if file_exists(img):
+
+        image = Image.open(img, 'r')
+    
+        data = ''
+        imgdata = iter(image.getdata())
+    
+        while (True):
+            pixels = [value for value in imgdata.__next__()[:3] + imgdata.__next__()[:3] + imgdata.__next__()[:3]]
+    
+            #String of binary data
+            binstr = ''
+    
+            for i in pixels[:8]:
+                if (i % 2 == 0):
+                    binstr += '0'
+                else:
+                    binstr += '1'
+    
+            data += chr(int(binstr, 2))
+            if (pixels[-1] % 2 != 0):
+                return data
+    else:
+        print(f'The file with the name "{file}" does not exist in the current directory.')
+        quit()
+
+#------------End of Credited Library------------#
