@@ -21,12 +21,14 @@ With this being said, You can use the new "Check Hash" function to get the hash 
 
  <br />
 
-Example (Of test files called `Arch_btw_no_datamark.png` and `Arch_btw_datamark.png`):
- - No Datamark: `6db87cd806d5cfbaebd928dfd1dd14888c39767415f4fcac180ccf69b2dbbfcb` | Anyone removing the datamark in the hex code/data will get this hash value. (original art/image hash before you added your datamark.)
+Examples (Of test files called `Arch_btw_no_datamark.png` and `Arch_btw_datamark.png`):
+ - No Datamark: `6db87cd806d5cfbaebd928dfd1dd14888c39767415f4fcac180ccf69b2dbbfcb` | This hash value is of the file before you would add your datamark or edit the file. (original art/image hash before you added your datamark.)
  
-- Datamark: `c2b494018149d9964876fdddd2535786fac09de179882bc7c4bcc3b9b4e5db9b` | Anyone not removing the datamark will get this hash value. | Watermark/Datamark is --> "This art is made by: Ori#6338 (On Discord)."
+- Datamark: `4f2270017307c5475363d9e9bc0342356079383d77034510035534c9164f03fc` | This hash value is of the file after you have added a datamerk. | Watermark/Datamark is --> "This art is made by: Ori#6338 (On Discord). <3"
 
-- Changed Datamark: `eb85e8254407f6b8491eab57ad63d6860719cafeee5a37103923c6059b8ea0b9` | If anyone changed or edited your datamark, they will get a different hash value all together. | Watermark/Datamark changed/edited to --> "This art is made by: SomeGuy#7830 (On Discord)"
+- Changed Datamark: `890e9902a2054611cea9460a9806aea8aaa9cd8bbd3bae3a2b2e2802916f3d0e` | If anyone changed your datamark to something else, they will get a different hash value all together. | Watermark/Datamark changed/edited to --> "This art is made by: SomeGuy#1234 (On Discord) <3"
+
+- Edited File: `09b552856d9e355fdbfbf21bfc077ef3233ee809bb8ebc2e85608136e81cdc45` | This hash value is what I got when I edited the image/art and exported it as a png, etc. after already giving it my datamark.
 
  <br />
 
