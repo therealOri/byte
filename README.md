@@ -22,7 +22,7 @@ With this being said, You can use the new "Check Hash" function to get the hash 
  <br />
 
 Examples (Of test files called `Arch_btw_no_datamark.png` and `Arch_btw_datamark.png`):
- - No Datamark: `6db87cd806d5cfbaebd928dfd1dd14888c39767415f4fcac180ccf69b2dbbfcb` | This hash value is of the file before you would add your datamark or edit the file. (original art/image hash before you added your datamark.)
+ - No Datamark: `6db87cd806d5cfbaebd928dfd1dd14888c39767415f4fcac180ccf69b2dbbfcb` | This hash value is of the file before you would add your datamark or edit the file. (original art/image hash)
  
 - Datamark: `4f2270017307c5475363d9e9bc0342356079383d77034510035534c9164f03fc` | This hash value is of the file after you have added a datamerk. | Watermark/Datamark is --> "This art is made by: Ori#6338 (On Discord). <3"
 
