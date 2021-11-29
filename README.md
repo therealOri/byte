@@ -32,7 +32,7 @@ Examples (Of test files called `Arch_btw_no_datamark.png` and `Arch_btw_datamark
 
  <br />
 
-As you can see, The hashes are completely different and can let you or others know, which image/art is the original and came from you!
+As you can see, The hashes are completely different and can let you or others know, which image/art is the original that came from you!
 __ __
 
 Find out more about hashing and the sha256 algorithm I use [Here!](https://www.simplilearn.com/tutorials/cyber-security-tutorial/sha-256-algorithm)
