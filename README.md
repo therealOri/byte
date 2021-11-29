@@ -60,7 +60,6 @@ __ __
 Your favorites:
 > - [x] PNG
 > - [x] JPG/JPEG
-> - [x] GIF
 
 [More here](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html)
 
