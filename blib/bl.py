@@ -24,7 +24,8 @@ Made by Ori#6338 | @therealOri_ | https://github.com/therealOri
 
 
     """
-    return banner
+    p = print(banner)
+    return p
 
 
 
