@@ -52,7 +52,7 @@ git clone https://github.com/therealOri/byte.git
 cd byte
 python3 byte.py
 ```
-> If you do not know how to install anything or if you are unsure how to do things. Please make an issue and I'll happily help you out!
+> If you do not know how to install anything or if you are unsure how to do things. I encourage you to create/make an issue and I'll happily help you out!
 __ __
 
 <br />
