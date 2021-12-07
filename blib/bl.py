@@ -184,6 +184,8 @@ def encode():
     
         new_img_name = input("Save image as(with extension): ")
         newimg.save(new_img_name, str(new_img_name.split(".")[1].upper()))
+        clear()
+        print(f'SAVED!\nFile with injected data saved as: {new_img_name}')
     else:
         clear()
         print(f'The file with the name "{img}" does not exist in the current directory.')
@@ -196,6 +198,7 @@ def encode():
 def decode():
     clear()
     img = input("Enter image name(with extension): ")
+    clear()
 
     if file_exists(img):
         image = Image.open(img, 'r')
