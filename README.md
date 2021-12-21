@@ -50,6 +50,7 @@ Find out more about hashing and the sha256 algorithm I use [Here!](https://www.s
 ```bash
 git clone https://github.com/therealOri/byte.git
 cd byte
+pip3 install requirements.txt
 python3 byte.py
 ```
 > If you do not know how to install anything or if you are unsure how to do things. I encourage you to create/make an issue and I'll happily help you out!
