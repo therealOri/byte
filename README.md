@@ -8,7 +8,7 @@ __ __
 <br />
 
 # TODO
-> - Nothing right now ^-^
+> - `.gif and webm encoding/decoding support.`
 __ __
 
 <br />
