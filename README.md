@@ -8,7 +8,8 @@ __ __
 <br />
 
 # TODO
-> - `.gif and webm encoding/decoding support.`
+> - `webm and video encoding/decoding support.`
+> - `.gif file support` [Help Wanted!]
 __ __
 
 <br />
