@@ -49,6 +49,7 @@ Find out more about hashing and the sha256 algorithm I use [Here!](https://www.s
 - [Python3 | Direct (Windows 10)](https://www.python.org/ftp/python/3.10.1/python-3.10.1-amd64.exe)
 - [Python3 | Website](https://www.python.org)
 - [Git Download](https://git-scm.com/downloads)
+- [Python3 venv documentation](https://docs.python.org/3/library/venv.html)
 
 ```bash
 git clone https://github.com/therealOri/byte.git
