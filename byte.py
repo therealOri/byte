@@ -50,6 +50,7 @@ if (option == 1):
         shutil.move(os.path.join(filedir, "video.mov"), os.getcwd())
         os.rename('video.mov', ofile_name)
         bl.clean_tmp()
+        print(f'\n[LOG] Data successfully injected into "{ofile_name}"')
 
     elif vid_or_img == 0 or vid_or_img > 2:
         bl.clear()
