@@ -53,10 +53,13 @@ cd byte
 
 python3 -m venv bytENV
 source bytENV/bin/activate
-python3 pip3 install --upgrade pip
-pip3 install requirements.txt
+python3 -m pip install --upgrade pip
+pip3 install -r requirements.txt
 
 python3 byte.py
+
+deactivate
+(For leaving the venv when done. Or just close the terminal/cmd window.)
 ```
 > If you do not know how to install anything or if you are unsure how to do things. I encourage you to create/make an issue and I'll happily help you out!
 __ __
