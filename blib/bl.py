@@ -248,7 +248,7 @@ def encode_enc(newimg, data):
 # Encodes/injects your data into the image
 def encode():
     clear()
-    img = input("Enter image name(with extension): ")
+    img = input("Enter image name (with extension): ")
     if file_exists(img):
         image = Image.open(img, 'r')
  
@@ -259,7 +259,7 @@ def encode():
         newimg = image.copy()
         encode_enc(newimg, data)
     
-        new_img_name = input("Save image as(with extension): ")
+        new_img_name = input("Save image as (with extension): ")
         newimg.save(new_img_name, str(new_img_name.split(".")[1].upper()))
         clear()
         print(f'SAVED!\nFile with injected data saved as: {new_img_name}')
