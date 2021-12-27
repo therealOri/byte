@@ -8,7 +8,6 @@ __ __
 <br />
 
 # TODO
-> - `webm and video encoding/decoding support.`
 > - `.gif file support` [Help Wanted!]
 __ __
 
@@ -66,6 +65,11 @@ Your favorites:
 > - [x] JPG/JPEG
 
 [More here](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html)
+
+<br />
+
+# Unsupported Filetypes
+> - [x] GIF
 
 <br />
 <br />
