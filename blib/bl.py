@@ -118,7 +118,7 @@ def frame_extraction(video):
     if not os.path.exists("./tmp"):
         os.makedirs("./tmp")
     temp_folder="./tmp"
-    print("[INFO] tmp directory is being created.")
+    print("[INFO] tmp directory is being created. Please be patient!")
 
     vidcap = cv2.VideoCapture(video)
     count = 0
