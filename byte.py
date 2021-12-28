@@ -6,7 +6,6 @@ import time
 import cv2
 import numpy as np
 import math
-import shutil
 from stegano import lsb
 from subprocess import call, STDOUT
 
@@ -46,8 +45,7 @@ if (option == 1):
         call(["ffmpeg", "-i", "./tmp/%d.png" , "-vcodec", "png", "./tmp/video.mov", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
         
         call(["ffmpeg", "-i", "./tmp/video.mov", "-i", "./tmp/audio.mp3", "-codec", "copy", "video.mov", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
-        filedir = './tmp/'
-        shutil.move(os.path.join(filedir, "video.mov"), os.getcwd())
+        os.walk("./tmp/video.mov", os.getcwd())
         os.rename('video.mov', ofile_name)
         bl.clean_tmp()
         print(f'\n[LOG] Data successfully injected into "{ofile_name}"')
