@@ -39,13 +39,18 @@ if (option == 1):
             quit()
 
         bl.frame_extraction(f_name)
-        call(["ffmpeg", "-i", f_name, "-q:a", "0", "-map", "a", "./tmp/audio.mp3", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
+        call(["ffmpeg", "-i", f_name, "-q:a", "0", "-map", "a", ".tmp/audio.mp3", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
         
         bl.encode_string(input_string)
-        call(["ffmpeg", "-i", "./tmp/%d.png" , "-vcodec", "png", "./tmp/video.mov", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
+        call(["ffmpeg", "-i", ".tmp/%d.png" , "-vcodec", "png", ".tmp/video.mov", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
         
-        call(["ffmpeg", "-i", "./tmp/video.mov", "-i", "./tmp/audio.mp3", "-codec", "copy", "video.mov", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
-        os.walk("./tmp/video.mov", os.getcwd())
+        if file_exists('.tmp/audio.mp3'):
+            call(["ffmpeg", "-i", ".tmp/video.mov", "-i", ".tmp/audio.mp3", "-codec", "copy", "video.mov", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
+        else:
+            call(["ffmpeg", "-i", ".tmp/video.mov", "-codec", "copy", "video.mov", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
+        
+        cwd = os.getcwd()
+        os.walk(f"{cwd}/.tmp/video.mov", cwd)
         os.rename('video.mov', ofile_name)
         bl.clean_tmp()
         print(f'\n[LOG] Data successfully injected into "{ofile_name}"')
