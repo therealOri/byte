@@ -3,6 +3,9 @@ Steganography Image/Data Injector. For artists or people to inject their own Dat
 __ __
 
 Update | 12/27/2021:
+
+Warning: The bigger the video, the more frames it'll need to extract..which means longer wait times. It may take a while for bigger video files..
+
 > - Added more code to help support video files encoding. (.webm, .mov, etc.). Gifs are still unsupported as of now, still looking into how to get that to work.
 > - Added and updated a requirements.txt file for packages needed to be installed.
 > - Changed/Updated the installation commands to use a virtual enviroment.
@@ -12,6 +15,7 @@ __ __
 
 # TODO
 > - `.gif file support` [Help Wanted!]
+> - `Better way of encoding data into vido files. (Without frame extraction)`
 __ __
 
 <br />
