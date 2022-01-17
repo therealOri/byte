@@ -115,9 +115,9 @@ def split_string(s_str,count=10):
 
 
 def frame_extraction(video):
-    if not os.path.exists("./tmp"):
-        os.makedirs("./tmp")
-    temp_folder="./tmp"
+    if not os.path.exists(".tmp"):
+        os.makedirs(".tmp")
+    temp_folder=".tmp"
     print("[INFO] tmp directory is being created. Please be patient!")
 
     vidcap = cv2.VideoCapture(video)
@@ -131,7 +131,7 @@ def frame_extraction(video):
         count += 1
 
         
-def encode_string(input_string,root="./tmp/"):
+def encode_string(input_string,root=".tmp/"):
     split_string_list=split_string(input_string)
     for i in range(0,len(split_string_list)):
         f_name="{}{}.png".format(root,i)
@@ -142,7 +142,7 @@ def encode_string(input_string,root="./tmp/"):
 
 
 
-def clean_tmp(path="./tmp"):
+def clean_tmp(path=".tmp"):
     if os.path.exists(path):
         shutil.rmtree(path)
         print("[INFO] tmp files have been cleaned up.")
@@ -151,7 +151,7 @@ def clean_tmp(path="./tmp"):
 def decode_string(video):
     frame_extraction(video)
     secret=[]
-    root="./tmp/"
+    root=".tmp/"
     for i in range(len(os.listdir(root))):
         f_name="{}{}.png".format(root,i)
         secret_dec=lsb.reveal(f_name)
