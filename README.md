@@ -85,7 +85,6 @@ Your favorites:
 <br />
 
 # Unsupported Filetypes
-> - [x] WEBM
 > - [x] GIF
 
 <br />
