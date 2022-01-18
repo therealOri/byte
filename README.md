@@ -69,7 +69,9 @@ python3 byte.py
 deactivate
 (For leaving the venv when done. Or just close the terminal/cmd window.)
 ```
-> If you do not know how to install anything or if you are unsure how to do things. I encourage you to create/make an issue and I'll happily help you out!
+> If you do not know how to install anything or if you are unsure how to do things. I highly encourage you to create/make an issue or hop on over to our discussions area and I'll happily help you out!
+
+[Byte Discussions](https://github.com/therealori/byte/discussions)
 __ __
 
 <br />
