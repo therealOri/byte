@@ -27,20 +27,22 @@ With this being said, You can use the new "Check Hash" function to get the hash 
  <br />
 
 Examples (Of test files called `Arch_btw_no_datamark.png` and `Arch_btw_datamark.png`):
- - No Datamark: `6db87cd806d5cfbaebd928dfd1dd14888c39767415f4fcac180ccf69b2dbbfcb` | This hash value is of the file before you would add your datamark or edit the file. (original art/image hash)
+ - No Datamark: `1f82f21419729c3e3c39702cdf98815371571f8fa11327fcd80b0cb77fef2bea` | This hash value is of the file before you would add your datamark or edit the file. (original art/image hash)
  
-- Datamark: `4f2270017307c5475363d9e9bc0342356079383d77034510035534c9164f03fc` | This hash value is of the file after you have added a datamerk. | Watermark/Datamark is --> "This art is made by: Ori#6338 (On Discord). <3"
+- Datamark: `94ddbf5c3056494b4dba93843fe1df69d3e9be3f719c9248980b17517eee187a` | This hash value is of the file after you have added a datamerk. | Watermark/Datamark is --> "This art is made by: Ori#6338 (On Discord). <3"
 
-- Changed Datamark: `890e9902a2054611cea9460a9806aea8aaa9cd8bbd3bae3a2b2e2802916f3d0e` | If anyone changed your datamark to something else, they will get a different hash value all together. | Watermark/Datamark changed/edited to --> "This art is made by: SomeGuy#1234 (On Discord) <3"
+- Changed Datamark: `af11b457ca15c27d09b3eba3c841ffc9ff17c171f791925b260a2566ad4404fe` | If anyone changed your datamark to something else, they will get a different hash value all together. | Watermark/Datamark changed/edited to --> "This art is made by: SomeGuy#1234 (On Discord) <3"
 
-- Edited File: `09b552856d9e355fdbfbf21bfc077ef3233ee809bb8ebc2e85608136e81cdc45` | This hash value is what I got when I edited the image/art and exported it as a png, etc. after already giving it my datamark.
+- Edited File: `3c1bf8a294031c29d89340fc75c31bb8241ff1ca7d1284f57c8642f9cd53d10a` | This hash value is what I got when I edited the image/art and exported it as a png, etc. after already giving it my datamark.
 
  <br />
 
 As you can see, The hashes are completely different and can let you or others know, which image/art is the original that came from you!
 __ __
 
-Find out more about hashing and the sha256 algorithm I use [Here!](https://www.simplilearn.com/tutorials/cyber-security-tutorial/sha-256-algorithm)
+- Find out more about "what is hashing" [here!](https://www.simplilearn.com/tutorials/cyber-security-tutorial/sha-256-algorithm#what_is_hashing)
+- [blake2b hashlib documentation](https://docs.python.org/3/library/hashlib.html#blake2)
+- [blake2b website](https://www.blake2.net)
 
 
 
