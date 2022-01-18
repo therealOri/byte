@@ -1,7 +1,7 @@
 from PIL import Image
 import os
 from os.path import exists as file_exists
-import hashlib
+from hashlib import blake2b
 
 import time
 import cv2
@@ -49,16 +49,14 @@ def check():
     if file_exists(file):
         clear()
 
-        sha256 = hashlib.sha256()
         with open(file, 'rb') as fh:
             while True:
                 data = fh.read(buffer_size)
                 if not data:
                     break
-                sha256.update(data)
-                nhash = sha256.hexdigest()
+                nhash = blake2b(data, digest_size=32).hexdigest()
 
-        print(f'Here is the hash for "{file}".\n\nsha256 hash: {nhash}')
+        print(f'Here is the hash for "{file}".\n\nblake2b hash: {nhash}')
     else:
         print(f'The file with the name "{file}" does not exist in the current directory.')
         quit()
@@ -76,19 +74,17 @@ def compare(fhash):
     if file_exists(file):
         clear()
 
-        sha256 = hashlib.sha256()
         with open(file, 'rb') as fh:
             while True:
                 data = fh.read(buffer_size)
                 if not data:
                     break
-                sha256.update(data)
-                nhash = sha256.hexdigest()
+                nhash = blake2b(data, digest_size=32).hexdigest()
         if fhash == nhash:
-            p = print(f"The hash you provided matches {file}'s hash!\n\nYour hash - (sha256): {fhash}\nFile hash - (sha256): {nhash}")
+            p = print(f"The hash you provided matches {file}'s hash!\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}")
             return p
         else:
-            p = print(f"The hash you provided does not match {file}'s hash!\n\nYour hash - (sha256): {fhash}\nFile hash - (sha256): {nhash}")
+            p = print(f"The hash you provided does not match {file}'s hash!\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}")
             return p
     else:
         print(f'The file with the name "{file}" does not exist in the current directory.')
