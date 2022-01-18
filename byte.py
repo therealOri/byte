@@ -85,7 +85,7 @@ elif (option == 3):
     bl.check()
 elif (option == 4):
     bl.clear()
-    fhash = input('Please provide a sha256 hash to compare: ')
+    fhash = input('Please provide a valid blake2b hash to compare: ')
     bl.clear()
     bl.compare(fhash)
 else:
