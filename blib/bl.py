@@ -270,7 +270,7 @@ def encode():
 # Decodes your data in the image
 def decode():
     clear()
-    img = input("Enter image name(with extension): ")
+    img = input("Enter image name (with extension): ")
     clear()
 
     if file_exists(img):
