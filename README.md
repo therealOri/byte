@@ -2,13 +2,11 @@
 Steganography Image/Data Injector. For artists or people to inject their own Datamark "Watermark" into their images/art or files!
 __ __
 
-Update | 12/27/2021:
+Update | 1/17/2022:
 
-Warning: The bigger the video, the more frames it'll need to extract..which means longer wait times. It may take a while for bigger video files..
+Warning: The bigger the video, the more frames it'll need to extract..which means longer wait times. It may take a while for bigger video files.. Gifs are also still unsupported as of now, still looking into how to get that to work.
 
-> - Added more code to help support video files encoding. (.webm, .mov, etc.). Gifs are still unsupported as of now, still looking into how to get that to work.
-> - Added and updated a requirements.txt file for packages needed to be installed.
-> - Changed/Updated the installation commands to use a virtual enviroment.
+> - Changed hashing function to blake2b. (It is much better at defending against different files having teh same hash. Still waiting on blake3 to be added to hashlib).
 
 __ __
 <br />
