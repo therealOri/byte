@@ -33,7 +33,7 @@ Examples (Of test files called `Arch_btw_no_datamark.png` and `Arch_btw_datamark
 
 - Changed Datamark: `d5bde81df87f826a48464775e5eff69ea6fb319f0b9325ceda2f6de5c4358b95` | If anyone changed your datamark to something else, they will get a different hash value all together. | Watermark/Datamark changed/edited to --> "This art is made by: SomeGuy#1234 (On Discord) <3"
 
-- Edited File: `3c1bf8a294031c29d89340fc75c31bb8241ff1ca7d1284f57c8642f9cd53d10a` | This hash value is what I got when I edited the image/art and exported it as a png, etc. after already giving it my datamark.
+- Edited File: `87c8f58043e5877350d679cea697d601df98b85e78e1145e47e1b2a8d5428822` | This hash value is what I got when I edited the image/art and exported it as a png, etc. after already giving it my datamark.
 
  <br />
 
