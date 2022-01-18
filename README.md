@@ -6,7 +6,7 @@ Update | 1/17/2022:
 
 Warning: The bigger the video, the more frames it'll need to extract..which means longer wait times. It may take a while for bigger video files.. Gifs are also still unsupported as of now, still looking into how to get that to work.
 
-> - Changed hashing function to blake2b. (It is much better at defending against different files having teh same hash. Still waiting on blake3 to be added to hashlib).
+> - Changed hashing function to blake2b. (It is much better at defending against different files having the same hash. Still waiting on blake3 to be added to hashlib).
 
 __ __
 <br />
