@@ -15,7 +15,7 @@ __ __
 
 # TODO
 > - `.gif file support` [Help Wanted!]
-> - `Better way of encoding data into vido files. (Without frame extraction)`
+> - `Better way of encoding data into vido files. (Without frame extraction)` [Help Wanted!]
 __ __
 
 <br />
