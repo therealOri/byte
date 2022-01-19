@@ -10,6 +10,7 @@ import math
 import shutil
 from stegano import lsb
 from subprocess import call, STDOUT
+from alive_progress import alive_bar
 
 
 #------------My functions------------#
