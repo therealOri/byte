@@ -110,21 +110,29 @@ def split_string(s_str,count=10):
     return split_list
 
 
-def frame_extraction(video):
+def compute(video):
     if not os.path.exists(".tmp"):
         os.makedirs(".tmp")
     temp_folder=".tmp"
-    print("[INFO] tmp directory is being created. Please be patient!")
-
+        
     vidcap = cv2.VideoCapture(video)
     count = 0
-
+    
     while True:
         success, image = vidcap.read()
         if not success:
             break
+            
         cv2.imwrite(os.path.join(temp_folder, "{:d}.png".format(count)), image)
         count += 1
+        yield
+        
+def frame_extraction(video):
+    print("[INFO] tmp directory is being created. Please be patient!")
+    with alive_bar(0) as bar:
+        for i in compute(video):
+            bar()
+    print('[INFO] Done!')
 
         
 def encode_string(input_string,root=".tmp/"):
