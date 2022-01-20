@@ -50,7 +50,7 @@ if (option == 1):
             call(["ffmpeg", "-i", ".tmp/video.mov", "-codec", "copy", "video.mov", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
         
         cwd = os.getcwd()
-        os.walk(f"{cwd}/.tmp/video.mov", cwd)
+        os.walk(".tmp/video.mov", cwd)
         os.rename('video.mov', ofile_name)
         bl.clean_tmp()
         print(f'\n[LOG] Data successfully injected into "{ofile_name}"')
