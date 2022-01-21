@@ -14,6 +14,7 @@ __ __
 # TODO
 > - `.gif file support` [Help Wanted!]
 > - `Better way of encoding data into video files. (Without frame extraction)` [Help Wanted!]
+> - `Extract frames in chunks for larger/longer videos. (To make it go faster)`
 __ __
 
 <br />
