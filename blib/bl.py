@@ -11,6 +11,7 @@ import shutil
 from stegano import lsb
 from subprocess import call, STDOUT
 from alive_progress import alive_bar
+from imutils.video import count_frames
 
 
 #------------My functions------------#
@@ -111,6 +112,21 @@ def split_string(s_str,count=10):
     return split_list
 
 
+
+def count_frames(vid):
+    video = cv2.VideoCapture(vid)
+    total = 0
+    
+    try:
+        total = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
+    except Exception as e:
+        print(f'Could not get frames of the video to count.\n\nError: {e}\n')
+        total = 0
+
+    video.release()
+    return total
+
+
 def compute(video):
     if not os.path.exists(".tmp"):
         os.makedirs(".tmp")
@@ -127,10 +143,12 @@ def compute(video):
         cv2.imwrite(os.path.join(temp_folder, "{:d}.png".format(count)), image)
         count += 1
         yield
+
         
 def frame_extraction(video):
     print("[INFO] tmp directory is being created. Please be patient!")
-    with alive_bar(0) as bar:
+    total = count_frames(video)
+    with alive_bar(total) as bar:
         for i in compute(video):
             bar()
     print('[INFO] Done!')
