@@ -17,8 +17,8 @@ except Exception as e:
     bl.clear()
     print(f'Value given is not an integer.\nError: {e}')
     quit()
-    
-if (option == 1):
+
+if option == 1:
     bl.clear()
     vid_or_img = input('What would you like to do?\n\n1. Image  |  (.png, .jpg, etc.)\n2. Video  |  (.webm, .mov, etc.)\n\nEnter: ')
     vid_or_img = int(vid_or_img)
@@ -40,15 +40,15 @@ if (option == 1):
 
         bl.frame_extraction(f_name)
         call(["ffmpeg", "-i", f_name, "-q:a", "0", "-map", "a", ".tmp/audio.mp3", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
-        
+
         bl.encode_string(input_string)
         call(["ffmpeg", "-i", ".tmp/%d.png" , "-vcodec", "png", ".tmp/video.mov", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
-        
+
         if file_exists('.tmp/audio.mp3'):
             call(["ffmpeg", "-i", ".tmp/video.mov", "-i", ".tmp/audio.mp3", "-codec", "copy", "video.mov", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
         else:
             call(["ffmpeg", "-i", ".tmp/video.mov", "-codec", "copy", "video.mov", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
-        
+
         cwd = os.getcwd()
         os.walk(".tmp/video.mov", cwd)
         os.rename('video.mov', ofile_name)
@@ -61,29 +61,29 @@ if (option == 1):
         quit()
 
 
-elif (option == 2):
+elif option == 2:
     bl.clear()
     dec = input('What would you like to decode?\n\n1. Image  |  (.png, .jpg, etc.)\n2. Video  |  (.webm, .mov, etc.)\n\nEnter: ')
     dec = int(dec)
     bl.clear()
     if dec == 1:
-        print("Decoded Data:  " + bl.decode())
-    
+        print(f"Decoded Data:  {bl.decode()}")
+
     if dec == 2:
         bl.clear()
         video = input("Enter the name of video. (With extension): ")
         bl.clear()
         bl.decode_string(video)
-        
+
 
     elif dec == 0 or dec > 2:
         bl.clear()
         print("Incorrect value given. Please choose a valid option.")
         quit()
 
-elif (option == 3):
+elif option == 3:
     bl.check()
-elif (option == 4):
+elif option == 4:
     bl.clear()
     fhash = input('Please provide a valid blake2b hash to compare: ')
     bl.clear()
