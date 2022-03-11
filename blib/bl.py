@@ -14,14 +14,14 @@ from alive_progress import alive_bar
 from imutils.video import count_frames
 
 
-#------------My functions------------#
+#------------Functions------------#
 
 def clear():
     os.system('clear||cls')
 
 
 def banner():
-    banner = """
+    return """
 
               ██████╗ ██╗   ██╗████████╗███████╗
               ██╔══██╗╚██╗ ██╔╝╚══██╔══╝██╔════╝
@@ -37,19 +37,18 @@ Made by Ori#6338 | @therealOri_ | https://github.com/therealOri
 
 
     """
-    return banner
 
 
 
 # Check Hash
 def check():
     clear()
-    buffer_size = 65536
-
     file = input("Name of the file you want check the hash of?: ")
 
     if file_exists(file):
         clear()
+
+        buffer_size = 65536
 
         with open(file, 'rb') as fh:
             while True:
@@ -69,12 +68,12 @@ def check():
 
 # Compare hash
 def compare(fhash):
-    buffer_size = 65536
-
     file = input("Name of the file to compare your hash against: ")
 
     if file_exists(file):
         clear()
+
+        buffer_size = 65536
 
         with open(file, 'rb') as fh:
             while True:
@@ -82,12 +81,16 @@ def compare(fhash):
                 if not data:
                     break
                 nhash = blake2b(data, digest_size=32).hexdigest()
-        if fhash == nhash:
-            p = print(f"The hash you provided matches {file}'s hash!\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}")
-            return p
-        else:
-            p = print(f"The hash you provided does not match {file}'s hash!\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}")
-            return p
+        return (
+            print(
+                f"The hash you provided matches {file}'s hash!\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}"
+            )
+            if fhash == nhash
+            else print(
+                f"The hash you provided does not match {file}'s hash!\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}"
+            )
+        )
+
     else:
         print(f'The file with the name "{file}" does not exist in the current directory.')
         quit()
@@ -149,18 +152,18 @@ def frame_extraction(video):
     print("[INFO] tmp directory is being created. Please be patient!")
     total = count_frames(video)
     with alive_bar(total) as bar:
-        for i in compute(video):
+        for _ in compute(video):
             bar()
     print('[INFO] Done!')
 
         
 def encode_string(input_string,root=".tmp/"):
     split_string_list=split_string(input_string)
-    for i in range(0,len(split_string_list)):
-        f_name="{}{}.png".format(root,i)
+    for i in range(len(split_string_list)):
+        f_name = f"{root}{i}.png"
         secret_enc=lsb.hide(f_name,split_string_list[i])
         secret_enc.save(f_name)
-        print("[INFO] frame {} holds {}".format(f_name,split_string_list[i]))
+        print(f"[INFO] frame {f_name} holds {split_string_list[i]}")
     clear()
 
 
@@ -176,38 +179,21 @@ def decode_string(video):
     secret=[]
     root=".tmp/"
     for i in range(len(os.listdir(root))):
-        f_name="{}{}.png".format(root,i)
+        f_name = f"{root}{i}.png"
         secret_dec=lsb.reveal(f_name)
-        if secret_dec == None:
+        if secret_dec is None:
             break
         secret.append(secret_dec)
-        
-    result = ''.join([i for i in secret])
+
+    result = ''.join(list(secret))
     clear()
     clean_tmp()
     print(f'\n[LOG] Encoded data is: "{result}"')
 
-#------------End of My functions------------#
-
-
-
-
-
-
-#------------Credited functions and Stuff------------#
-# https://www.geeksforgeeks.org/image-based-steganography-using-python/
-# Functions genData(), modPix(), encode_enc(), encode(), and decode() can be creddited to "geeksforgeeks" for the help with the library functions to make this possible. <3
-# Hopefully I changed/added enough here to be ok. I'd change more but tbh, I don't exactly know what to change as it's so precise and would probably break if I did.
-# To anyone reading this, you are more then welcome to make a push request here on github and edit the functions to work better!
-# I am still going to call this whole byte project mine and that I made it.
-
 
 
 def genData(data):
-        dlist = []
-        for i in data:
-            dlist.append(format(ord(i), '08b'))
-        return dlist
+    return [format(ord(i), '08b') for i in data]
 
 
 
@@ -215,37 +201,42 @@ def modPix(pix, data):
     datalist = genData(data)
     lendata = len(datalist)
     imdata = iter(pix)
- 
+
     for i in range(lendata):
         # Extracting 3 pixels at a time
-        pix = [value for value in imdata.__next__()[:3] + imdata.__next__()[:3] + imdata.__next__()[:3]]
- 
+        pix = list(
+            imdata.__next__()[:3]
+            + imdata.__next__()[:3]
+            + imdata.__next__()[:3]
+        )
+
+
         # Pixel value should be made odd for 1 and even for 0
-        for j in range(0, 8):
+        for j in range(8):
             if (datalist[i][j] == '0' and pix[j]% 2 != 0):
                 pix[j] -= 1
- 
+
             elif (datalist[i][j] == '1' and pix[j] % 2 == 0):
                 if(pix[j] != 0):
                     pix[j] -= 1
                 else:
                     pix[j] += 1
- 
+
 
         # The 8th pixel of every set tells it whether to stop or read further. 0 means keep reading, 1 means the message is over.
-        if (i == lendata - 1):
-            if (pix[-1] % 2 == 0):
-                if(pix[-1] != 0):
-                    pix[-1] -= 1
-                else:
-                    pix[-1] += 1
- 
-        else:
-            if (pix[-1] % 2 != 0):
-                pix[-1] -= 1
- 
+        if (
+            (i == lendata - 1)
+            and (pix[-1] % 2 == 0)
+            and (pix[-1] != 0)
+            or i != lendata - 1
+            and (pix[-1] % 2 != 0)
+        ):
+            pix[-1] -= 1
+        elif (i == lendata - 1) and (pix[-1] % 2 == 0):
+            pix[-1] += 1
+
         pix = tuple(pix)
-        yield pix[0:3]
+        yield pix[:3]
         yield pix[3:6]
         yield pix[6:9]
 
@@ -304,18 +295,17 @@ def decode():
         image = Image.open(img, 'r')
         data = ''
         imgdata = iter(image.getdata())
-    
-        while (True):
-            pixels = [value for value in imgdata.__next__()[:3] + imgdata.__next__()[:3] + imgdata.__next__()[:3]]
+
+        while True:
+            pixels = list(
+                imgdata.__next__()[:3]
+                + imgdata.__next__()[:3]
+                + imgdata.__next__()[:3]
+            )
+
             #String of binary data
-            binstr = ''
-    
-            for i in pixels[:8]:
-                if (i % 2 == 0):
-                    binstr += '0'
-                else:
-                    binstr += '1'
-    
+            binstr = ''.join('0' if (i % 2 == 0) else '1' for i in pixels[:8])
+
             data += chr(int(binstr, 2))
             if (pixels[-1] % 2 != 0):
                 return data
@@ -323,8 +313,7 @@ def decode():
         print(f'The file with the name "{img}" does not exist in the current directory.')
         quit()
 
-#------------End of Credited Library------------#
-
+#------------End of Functions Library------------#
 
 if __name__ == '__main__':
     pass
