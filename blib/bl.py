@@ -14,7 +14,7 @@ from alive_progress import alive_bar
 from imutils.video import count_frames
 
 
-#------------My functions------------#
+#------------Functions------------#
 
 def clear():
     os.system('clear||cls')
@@ -190,20 +190,6 @@ def decode_string(video):
     clean_tmp()
     print(f'\n[LOG] Encoded data is: "{result}"')
 
-#------------End of My functions------------#
-
-
-
-
-
-
-#------------Credited functions and Stuff------------#
-# https://www.geeksforgeeks.org/image-based-steganography-using-python/
-# Functions genData(), modPix(), encode_enc(), encode(), and decode() can be creddited to "geeksforgeeks" for the help with the library functions to make this possible. <3
-# Hopefully I changed/added enough here to be ok. I'd change more but tbh, I don't exactly know what to change as it's so precise and would probably break if I did.
-# To anyone reading this, you are more then welcome to make a push request here on github and edit the functions to work better!
-# I am still going to call this whole byte project mine and that I made it.
-
 
 
 def genData(data):
@@ -327,7 +313,7 @@ def decode():
         print(f'The file with the name "{img}" does not exist in the current directory.')
         quit()
 
-#------------End of Credited Library------------#
+#------------End of Functions Library------------#
 
-
-pass
+if __name__ == '__main__':
+    pass
