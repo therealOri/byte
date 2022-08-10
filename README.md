@@ -83,6 +83,8 @@ __ __
 Your favorites:
 > - [x] PNG
 > - [x] JPG/JPEG
+> - [x] MP4
+> - [x] WEBM
 
 [More here](https://pillow.readthedocs.io/en/stable/handbook/image-file-formats.html)
 
