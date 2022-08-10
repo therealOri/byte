@@ -1,6 +1,7 @@
 from PIL import Image
 import os
 from os.path import exists as file_exists
+import platform
 from hashlib import blake2b
 
 import time
@@ -34,8 +35,6 @@ def banner():
 Made by Ori#6338 | @therealOri_ | https://github.com/therealOri
 
 
-
-
     """
 
 
@@ -43,56 +42,65 @@ Made by Ori#6338 | @therealOri_ | https://github.com/therealOri
 # Check Hash
 def check():
     clear()
-    file = input("Name of the file you want check the hash of?: ")
+    file_path = input("File you want check the hash of?: ").replace('\\', ' ').strip()
+    if platform.system() == 'Windows':
+        file_to_hash = file_path.split('\\')[-1]
+    if platform.system() == 'Linux' or platform.system() == 'Darwin':
+        file_to_hash = file_path.split('/')[-1]
 
-    if file_exists(file):
+    if file_exists(file_to_hash):
         clear()
 
         buffer_size = 65536
 
-        with open(file, 'rb') as fh:
+        with open(file_to_hash, 'rb') as fh:
             while True:
                 data = fh.read(buffer_size)
                 if not data:
                     break
                 nhash = blake2b(data, digest_size=32).hexdigest()
 
-        print(f'Here is the hash for "{file}".\n\nblake2b hash: {nhash}')
+        print(f'Here is the hash for "{file_to_hash}".\n\nblake2b hash: {nhash}')
+        input("Press enter to continue...")
+        clear()
     else:
-        print(f'The file with the name "{file}" does not exist in the current directory.')
-        quit()
+        print(f'The file with the name "{file_to_hash}" does not exist in the current directory.')
+        input("Press enter to continue...")
+        clear()
 # End of Check Hash
-
-
 
 
 # Compare hash
 def compare(fhash):
-    file = input("Name of the file to compare your hash against: ")
+    file_path = input("File to compare your hash against: ").replace('\\', ' ').strip()
+    if platform.system() == 'Windows':
+        file_to_hash = file_path.split('\\')[-1]
+    if platform.system() == 'Linux' or platform.system() == 'Darwin':
+        file_to_hash = file_path.split('/')[-1]
 
-    if file_exists(file):
+    if file_exists(file_to_hash):
         clear()
 
         buffer_size = 65536
 
-        with open(file, 'rb') as fh:
+        with open(file_to_hash, 'rb') as fh:
             while True:
                 data = fh.read(buffer_size)
                 if not data:
                     break
                 nhash = blake2b(data, digest_size=32).hexdigest()
-        return (
-            print(
-                f"The hash you provided matches {file}'s hash!\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}"
-            )
-            if fhash == nhash
-            else print(
-                f"The hash you provided does not match {file}'s hash!\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}"
-            )
-        )
+
+        if fhash == nhash:
+            print(f"The hash you provided matches {file_to_hash}'s hash!\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}")
+            input("Press enter to continue...")
+            clear()
+        else:
+            print(f"The hash you provided does not match {file_to_hash}'s hash!\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}")
+            input("Press enter to continue...")
+            clear()
 
     else:
-        print(f'The file with the name "{file}" does not exist in the current directory.')
+        print(f'The file with the name "{file_to_hash}" does not exist in the current directory.')
         quit()
 # End Compare hash
 
@@ -176,6 +184,7 @@ def clean_tmp(path=".tmp"):
 
 def decode_string(video):
     frame_extraction(video)
+    print("[INFO] Decompiling Video & Frames and extracting hidden data!...")
     secret=[]
     root=".tmp/"
     for i in range(len(os.listdir(root))):
@@ -185,10 +194,15 @@ def decode_string(video):
             break
         secret.append(secret_dec)
 
+    print("[INFO] Data/message has been obtained.")
     result = ''.join(list(secret))
     clear()
+    print("[INFO] Cleaning up...")
     clean_tmp()
-    print(f'\n[LOG] Encoded data is: "{result}"')
+    clear()
+    print(f'[LOG] Encoded data is: "{result}"')
+    input("Press enter to continue...")
+    clear()
 
 
 
@@ -280,7 +294,7 @@ def encode():
     else:
         clear()
         print(f'The file with the name "{img}" does not exist in the current directory.')
-        quit()
+        
 
 
 
@@ -288,8 +302,9 @@ def encode():
 # Decodes your data in the image
 def decode():
     clear()
-    img = input("Enter image name (with extension): ")
+    img = input("Enter image name (with extension): ").replace('\\', ' ').strip().replace('"','').replace("'","")
     clear()
+
 
     if file_exists(img):
         image = Image.open(img, 'r')
