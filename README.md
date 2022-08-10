@@ -52,24 +52,24 @@ __ __
 <br />
 
 # Installation/Links
-- [Python3 | Direct (Windows 10)](https://www.python.org/ftp/python/3.10.1/python-3.10.1-amd64.exe)
+- [Python3 | Direct (Windows 10)](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe)
 - [Python3 | Website](https://www.python.org)
 - [Git Download](https://git-scm.com/downloads)
-- [Python3 venv documentation](https://docs.python.org/3/library/venv.html)
 
 ```bash
 git clone https://github.com/therealOri/byte.git
 cd byte
 
-python3 -m venv bytENV
+# Optional: pip install virtualenv
+virtualenv bytENV
 source bytENV/bin/activate
-python3 -m pip install --upgrade pip
-pip3 install -r requirements.txt
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 
-python3 byte.py
+python byte.py
 
-deactivate
-(For leaving the venv when done. Or just close the terminal/cmd window.)
+# deactivate
+# (For leaving the virtual enviroment when done. Or just close the terminal/cmd window.)
 ```
 > If you do not know how to install anything or if you are unsure how to do things. I highly encourage you to create/make an issue or hop on over to our discussions area and I'll happily help you out!
 
