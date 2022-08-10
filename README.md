@@ -9,6 +9,8 @@ Warning: The bigger the video, the more frames it'll need to extract..which mean
 > - Updated the menu so things work smoother and looks a bit cleaner.
 > - Added some more print messages to let you know what's happening at certain times.
 
+If you encounter any bugs or weirdness, please let me know!
+
 __ __
 <br />
 
