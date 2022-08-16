@@ -95,9 +95,15 @@ while True:
 
             bl.clear()
             if dec == 1:
-                print(f"Decoded Data:  {bl.decode()}\n")
-                input("Press enter to continue...")
-                bl.clear()
+                data = bl.decode()
+                if not data or data == None:
+                    print("There must have been an error...that or there was no data to be decoded.")
+                    input("Press enter to continue...")
+                    bl.clear()
+                else:
+                    print(f"Decoded Data:  {data}\n")
+                    input("Press enter to continue...")
+                    bl.clear()
 
             if dec == 2:
                 bl.clear()
