@@ -42,11 +42,13 @@ Made by Ori#6338 | @therealOri_ | https://github.com/therealOri
 # Check Hash
 def check():
     clear()
-    file_path = input("File you want check the hash of?: ").replace('\\', ' ').strip()
+    file_path = input("File you want get the hash of?: ").replace('\\', ' ').strip()
+
     if platform.system() == 'Windows':
         file_to_hash = file_path.split('\\')[-1]
     if platform.system() == 'Linux' or platform.system() == 'Darwin':
         file_to_hash = file_path.split('/')[-1]
+
 
     if file_exists(file_to_hash):
         clear()
@@ -64,7 +66,7 @@ def check():
         input("Press enter to continue...")
         clear()
     else:
-        print(f'The file with the name "{file_to_hash}" does not exist in the current directory.')
+        print(f'The file with the name "{file_to_hash}" does not exist or can not be found in path.')
         input("Press enter to continue...")
         clear()
 # End of Check Hash
@@ -100,8 +102,9 @@ def compare(fhash):
             clear()
 
     else:
-        print(f'The file with the name "{file_to_hash}" does not exist in the current directory.')
-        quit()
+        print(f'The file with the name "{file_to_hash}" does not exist or can not be found in path.')
+        input("Press enter to continue...")
+        clear()
 # End Compare hash
 
 
@@ -276,7 +279,7 @@ def encode_enc(newimg, data):
 # Encodes/injects your data into the image
 def encode():
     clear()
-    img = input("Enter image name (with extension): ")
+    img = input("Drag and Drop image: ").replace('\\', ' ').strip()
     if file_exists(img):
         image = Image.open(img, 'r')
  
@@ -291,9 +294,18 @@ def encode():
         newimg.save(new_img_name, str(new_img_name.split(".")[1].upper()))
         clear()
         print(f'SAVED!\nFile with injected data saved as: {new_img_name}')
-    else:
+        input("Press enter to continue...")
         clear()
-        print(f'The file with the name "{img}" does not exist in the current directory.')
+    else:
+        if platform.system() == 'Windows':
+            img_name = img.split('\\')[-1]
+        if platform.system() == 'Linux' or platform.system() == 'Darwin':
+            img_name = img.split('/')[-1]
+
+        clear()
+        print(f'The file with the name "{img_name}" does not exist or can not be found in path.')
+        input("Press enter to continue...")
+        clear()
         
 
 
@@ -302,7 +314,7 @@ def encode():
 # Decodes your data in the image
 def decode():
     clear()
-    img = input("Enter image name (with extension): ").replace('\\', ' ').strip().replace('"','').replace("'","")
+    img = input("Drag & Drop image: ").replace('\\', ' ').strip().replace('"','').replace("'","")
     clear()
 
 
@@ -325,8 +337,14 @@ def decode():
             if (pixels[-1] % 2 != 0):
                 return data
     else:
-        print(f'The file with the name "{img}" does not exist in the current directory.')
-        quit()
+        if platform.system() == 'Windows':
+            img_name = img.split('\\')[-1]
+        if platform.system() == 'Linux' or platform.system() == 'Darwin':
+            img_name = img.split('/')[-1]
+
+        print(f'The file with the name "{img_name}" does not exist in the current directory.')
+        input("Press enter to continue...")
+        clear()
 
 #------------End of Functions Library------------#
 
