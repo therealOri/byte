@@ -16,6 +16,7 @@ __ __
 <br />
 
 # TODO
+> - `New menus.`
 > - `.gif file support` [Help Wanted!]
 > - `Better way of encoding data into video files. (Without frame extraction)` [Help Wanted!]
 > - `Extract frames faster for larger/longer videos.` [Help Wanted!]
