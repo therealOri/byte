@@ -55,7 +55,7 @@ __ __
 <br />
 
 # Installation/Links
-- [Python3 | Direct (Windows 10)](https://www.python.org/ftp/python/3.10.6/python-3.10.6-amd64.exe)
+- [Python3 | Direct (Windows 10)](https://www.python.org/ftp/python/3.11.0/python-3.11.0-amd64.exe)
 - [Python3 | Website](https://www.python.org)
 - [Git Download](https://git-scm.com/downloads)
 
