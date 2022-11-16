@@ -36,9 +36,6 @@ def banner():
 
 Made by Ori#6338 | @therealOri_ | https://github.com/therealOri
 
-
-
-
     """
 
 
