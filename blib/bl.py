@@ -43,7 +43,7 @@ Made by Ori#6338 | @therealOri_ | https://github.com/therealOri
 # Check Hash
 def check():
     clear()
-    file = input("Name of the file you want check the hash of?: ")
+    file = input('File to check hash of. - (Drag & Drop): ').replace('\\ ', ' ').strip()
 
     if file_exists(file):
         clear()
@@ -57,9 +57,9 @@ def check():
                     break
                 nhash = blake2b(data, digest_size=32).hexdigest()
 
-        print(f'Here is the hash for "{file}".\n\nblake2b hash: {nhash}')
+        input(f'Here is the hash for "{file}".\n\nblake2b hash: {nhash}\n\nPress "enter" to continue...')
     else:
-        print(f'The file with the name "{file}" does not exist in the current directory.')
+        print(f'The file with the name "{file}" does not exist in the current directory.\n\nPress "enter" to continue...')
         quit()
 # End of Check Hash
 
@@ -68,7 +68,7 @@ def check():
 
 # Compare hash
 def compare(fhash):
-    file = input("Name of the file to compare your hash against: ")
+    file = input('File to compare hash against. - (Drag & Drop): ').replace('\\ ', ' ').strip()
 
     if file_exists(file):
         clear()
@@ -82,17 +82,17 @@ def compare(fhash):
                     break
                 nhash = blake2b(data, digest_size=32).hexdigest()
         return (
-            print(
-                f"The hash you provided matches {file}'s hash!\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}"
+            input(
+                f'The hash you provided matches the hash of {file}\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}\n\nPress "enter" to continue...'
             )
             if fhash == nhash
-            else print(
-                f"The hash you provided does not match {file}'s hash!\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}"
+            else input(
+                f'The hash you provided does not match the hash of {file}\n\nYour hash - (blake2b): {fhash}\nFile hash - (blake2b): {nhash}\n\nPress "enter" to continue...'
             )
         )
 
     else:
-        print(f'The file with the name "{file}" does not exist in the current directory.')
+        input(f'The file with the name "{file}" does not exist in the current directory.\n\nPress "enter" to continue...')
         quit()
 # End Compare hash
 
@@ -291,7 +291,8 @@ def encode():
         new_img_name = input("Save image as (with extension): ")
         newimg.save(new_img_name, str(new_img_name.split(".")[1].upper()))
         clear()
-        print(f'SAVED!\nFile with injected data saved as: {new_img_name}')
+        input(f'SAVED!\nFile with injected data saved as: {new_img_name}\n\nPress "enter" to continue...')
+        clear()
     else:
         clear()
         raise ValueError("I can't find the file..it does not exist where specified or isn't a file.")
