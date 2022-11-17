@@ -11,8 +11,16 @@ Warning: The bigger the video, the more frames it'll need to extract..which mean
 > - New gcm.so file/library for said new encryption functions/feature.
 
 If you encounter any bugs or weirdness, please let me know!
-
 __ __
+
+<br />
+<br />
+
+# Showcase
+https://user-images.githubusercontent.com/45724082/202568684-e0808d43-d6da-4dd5-a64f-9b81d58f7027.mp4
+__ __
+
+<br />
 <br />
 
 # TODO
@@ -48,8 +56,6 @@ __ __
 - Find out more about "what is hashing" [here!](https://www.simplilearn.com/tutorials/cyber-security-tutorial/sha-256-algorithm#what_is_hashing)
 - [blake2b hashlib documentation](https://docs.python.org/3/library/hashlib.html#blake2)
 - [blake2b website](https://www.blake2.net)
-
-
 
 <br />
 <br />
