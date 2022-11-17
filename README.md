@@ -16,13 +16,6 @@ __ __
 <br />
 <br />
 
-# Showcase
-https://user-images.githubusercontent.com/45724082/202568684-e0808d43-d6da-4dd5-a64f-9b81d58f7027.mp4
-__ __
-
-<br />
-<br />
-
 # TODO
 > - `.gif file support` [Help Wanted!]
 > - `Better way of encoding data into video files. (Without frame extraction)` [Help Wanted!]
