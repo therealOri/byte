@@ -18,7 +18,8 @@ __ __
 
 # Showcase
 [![asciicast](https://asciinema.org/a/nACOEoMtqolFXShe18uKdFVV8.svg)](https://asciinema.org/a/nACOEoMtqolFXShe18uKdFVV8)
-
+> A video showcasing how byte works.
+__ __
 
 <br />
 <br />
