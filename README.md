@@ -27,6 +27,9 @@ __ __
 
 # TODO
 > - `.gif file support` [Help Wanted!]
+> - `Audio file based steganography`
+> - `File based steganography`
+> - `Experiment with hiding messages in text.`
 > - `Better way of encoding data into video files. (Without frame extraction)` [Help Wanted!]
 > - `Extract frames faster for larger/longer videos.` [Help Wanted!]
 __ __
