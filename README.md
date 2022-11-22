@@ -16,6 +16,14 @@ __ __
 <br />
 <br />
 
+# Showcase
+[![asciicast](https://asciinema.org/a/nACOEoMtqolFXShe18uKdFVV8.svg)](https://asciinema.org/a/nACOEoMtqolFXShe18uKdFVV8)
+
+
+<br />
+<br />
+
+
 # TODO
 > - `.gif file support` [Help Wanted!]
 > - `Better way of encoding data into video files. (Without frame extraction)` [Help Wanted!]
