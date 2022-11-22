@@ -26,9 +26,7 @@ __ __
 
 
 # TODO
-> - `Audio file based steganography`
-> - `File based steganography`
-> - `Experiment with hiding messages in text.`
+> - `Wav Audio file based steganography. (no .mp3)`
 > - `Better way of encoding data into video files. (Without frame extraction)` [Help Wanted!]
 > - `Extract frames faster for larger/longer videos.` [Help Wanted!]
 > - `.gif file support` [Help Wanted!]
