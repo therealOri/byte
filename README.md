@@ -2,13 +2,11 @@
 Steganography Image/Data Injector. For artists or people to inject their own Datamark "Watermark" into their images/art or files!
 __ __
 
-Update | 11/16/2022:
+Update | 1/30/2023:
 
 Warning: The bigger the video, the more frames it'll need to extract..which means longer wait times. It may take a while for bigger video files.. Gifs are also still unsupported as of now, still looking into how to get that to work.
 
-> - New feature allows you to have your data encrypted using AES (mode GCM) before storing it in the images and video frames.
-> - New Menu and bug fixes. Made possible with [Beaupy](https://github.com/petereon/beaupy)!
-> - New gcm.so file/library for said new encryption functions/feature.
+> - Updated encryption to use [GCMlib](https://pypi.org/project/GCMlib/) instead of its own library file.
 
 If you encounter any bugs or weirdness, please let me know!
 __ __
