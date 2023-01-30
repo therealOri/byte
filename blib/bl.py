@@ -3,8 +3,7 @@ import os
 from os.path import exists as file_exists
 from hashlib import blake2b
 import base64
-from gcm import GCMlib
-gcm = GCMlib()
+import gcm
 
 import time
 import cv2
@@ -43,7 +42,7 @@ Made by Ori#6338 | @therealOri_ | https://github.com/therealOri
 # Check Hash
 def check():
     clear()
-    file = input('File to check hash of. - (Drag & Drop): ').replace('\\ ', ' ').strip()
+    file = input('File to check hash of. - (Drag & Drop): ').replace('\\ ', ' ').strip().replace("'", "")
 
     if file_exists(file):
         clear()
@@ -68,7 +67,7 @@ def check():
 
 # Compare hash
 def compare(fhash):
-    file = input('File to compare hash against. - (Drag & Drop): ').replace('\\ ', ' ').strip()
+    file = input('File to compare hash against. - (Drag & Drop): ').replace('\\ ', ' ').strip().replace("'", "")
 
     if file_exists(file):
         clear()
@@ -263,7 +262,7 @@ def encode_enc(newimg, data):
 # Encodes/injects your data into the image
 def encode():
     clear()
-    img = input("Image file - (Drag & Drop): ").replace('\\ ', ' ').strip()
+    img = input("Image file - (Drag & Drop): ").replace('\\ ', ' ').strip().replace("'", "")
     if file_exists(img):
         image = Image.open(img, 'r')
  
@@ -276,17 +275,17 @@ def encode():
             raise ValueError("Key must be 100 characters in length or more!")
 
         gcm.clear()
-        key = bytes(key_data, 'utf-8')
+        bkey = bytes(key_data, 'utf-8')
         data = bytes(data, 'utf-8')
-        key = gcm.keygen(key)
+        key = gcm.keygen(bkey)
         save_me = base64.b64encode(key)
         input(f'Save this key for decrypting later: {save_me.decode()}\n\nPress "enter" to continue...')
         gcm.clear()
 
-        enc_data = gcm.stringE(data, key)
+        data_enc = gcm.stringE(enc_data=data, key=key)
 
         newimg = image.copy()
-        encode_enc(newimg, enc_data)
+        encode_enc(newimg, data_enc)
     
         new_img_name = input("Save image as (with extension): ")
         newimg.save(new_img_name, str(new_img_name.split(".")[1].upper()))
@@ -303,7 +302,7 @@ def encode():
 # Decodes your data in the image
 def decode():
     clear()
-    img = input("Image File - (Drag & Drop): ").replace('\\ ', ' ').strip()
+    img = input("Image File - (Drag & Drop): ").replace('\\ ', ' ').strip().replace("'", "")
     clear()
 
     if file_exists(img):
