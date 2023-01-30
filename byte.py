@@ -3,9 +3,8 @@ import sys
 from os.path import exists as file_exists
 from blib import bl
 import beaupy
-from gcm import GCMlib #gcm.so file | Contains functions for AES encryption using mode GCM
+import gcm
 import base64
-gcm = GCMlib()
 
 import time
 import cv2
@@ -41,7 +40,7 @@ while True:
             bl.encode()
 
         if encode_options[1] in encode_option:
-            f_name = input('Please provide the file you would like to inject data into - (Drag & Drop): ').replace('\\ ', ' ').strip()
+            f_name = input('Please provide the file you would like to inject data into - (Drag & Drop): ').replace('\\ ', ' ').strip().replace("'", "")
             if file_exists(f_name):
                 bl.clear()
                 input_string = input('Enter data to be injected: ')
@@ -51,13 +50,13 @@ while True:
                     raise ValueError("Key must be 100 characters in length or more!")
                 gcm.clear()
 
-                key = bytes(key_data, 'utf-8')
+                bkey = bytes(key_data, 'utf-8')
                 data = bytes(input_string, 'utf-8')
-                key = gcm.keygen(key)
+                key = gcm.keygen(bkey)
                 save_me = base64.b64encode(key)
                 input(f'Save this key for decrypting later: {save_me.decode()}\n\nPress "enter" to continue...')
                 gcm.clear()
-                enc_data = gcm.stringE(data, key)
+                data_enc = gcm.stringE(enc_data=data, key=key)
 
                 bl.clear()
                 ofile_name = input('Name of newly encoded file (with extension): ')
@@ -69,7 +68,7 @@ while True:
             bl.frame_extraction(f_name)
             call(["ffmpeg", "-i", f_name, "-q:a", "0", "-map", "a", ".tmp/audio.mp3", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
 
-            bl.encode_string(enc_data)
+            bl.encode_string(data_enc)
             print("[INFO] finalizing & Cleaning up tmp files...")
 
             call(["ffmpeg", "-i", ".tmp/%d.png" , "-vcodec", "png", ".tmp/video.mov", "-y"], stdout=open(os.devnull, "w"), stderr=STDOUT)
@@ -102,7 +101,7 @@ while True:
             key = input("Encryption key: ")
             dKey = base64.b64decode(key)
             img_enc_data = bl.decode()
-            result = gcm.stringD(img_enc_data, dKey)
+            result = gcm.stringD(dcr_data=img_enc_data, key=dKey)
             input(f'Decoded Data:  {result}\n\nPress "enter" to continue...')
             bl.clear()
 
@@ -111,11 +110,11 @@ while True:
             bl.clear()
             key = input("Encryption key: ")
             dKey = base64.b64decode(key)
-            video = input("Video File - (Drag & Drop): ").replace('\\ ', ' ').strip()
+            video = input("Video File - (Drag & Drop): ").replace('\\ ', ' ').strip().replace("'", "")
             bl.clear()
             vid_enc_data = bl.decode_string(video)
 
-            result = gcm.stringD(vid_enc_data, dKey)
+            result = gcm.stringD(dcr_data=vid_enc_data, key=dKey)
             input(f'Decoded Data:  {result}\n\nPress "enter" to continue...')
             bl.clear()
 
